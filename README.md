@@ -24,14 +24,20 @@ Generally,
                        Divider = (Master Clock frequency)/ (Baud Rate x Oversampling rate)
                        
 Since I'm Working with a 100MHz master clock,
+
                        Divider(16x) = 100,000,000/115200 x 16 = 54.253
+                       
 A decimal divider. Which opens up error if we approximate either way. 55 clock cycles would be too fast and 54 would be too slow, bound to cause timing issues and small errors. The main reason of using 16x oversampling in the older times was because it was cheaper.
 My approach was to just find an oversampling rate that evaluated the divider to an integer. The closest next oversampling rate was 28x,
+
                        Divider(28x) = 100,000,000/115200 x 28 = 31.000
+                       
 More precisely,
+
                        115200 x 28  = 3225600
                        3225600 x 31 = 99,993,600
 Error,
+
           100,000,000 - 99,993,600  = 6400
                   6400/100,000,000  = 0.0064% error only
                        
