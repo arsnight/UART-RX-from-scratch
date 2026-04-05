@@ -41,3 +41,5 @@ Error,
           100,000,000 - 99,993,600  = 6400
                   6400/100,000,000  = 0.0064% error only
                        
+Now that the oversampling rate is decided, the time has come to finally design the module itself. Now forget 868, Instead use the theory of divider to sample once every 31 clock cycles and use a counter to sample 28 times and reset once the counter hits 27(counting starts at 0):
+``` verilog
