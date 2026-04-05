@@ -20,7 +20,9 @@ The basic gist of oversampling is rather simple. Instead of sampling once every 
 Usually most common oversampling I noted was 16x oversampling which has it's own problems. For my project here with baud rate 115200, we obtain a decimal divider.
 A divider is basically, how many master clock cycles you wait before generating one oversampled tick.
 Generally,
+
                        Divider = (Master Clock frequency)/ (Baud Rate x Oversampling rate)
+                       
 Since I'm Working with a 100MHz master clock,
                        Divider(16x) = 100,000,000/115200 x 16 = 54.253
 A decimal divider. Which opens up error if we approximate either way. 55 clock cycles would be too fast and 54 would be too slow, bound to cause timing issues and small errors. The main reason of using 16x oversampling in the older times was because it was cheaper.
