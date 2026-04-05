@@ -103,7 +103,7 @@ endmodule
 ```
 using if (counter == 5'd14) allows mid sampling.
 
-Now time to proceed to the Finite state machine. After making both TX and RX modules the one thing I can't ignore is the level triggered FSM designs breaking the entire module. Level triggers are annoyingly bad, causing frustrations in debugging phases and simulation checks. Always make edge triggered design unless there is an explicit need for a level triggered module. The FSM was straightforward and just like the FSM of the TX. Aside from the level triggered issue I committed during the first designs the rest was simple:
+Now time to proceed to the Finite state machine. After making both TX and RX modules the one thing I can't ignore is the level triggered FSM designs breaking the entire module. Level triggers are annoyingly bad, causing frustrations in debugging phases and simulation checks. **Always make edge triggered design unless there is an explicit need for a level triggered module.** The FSM was straightforward and just like the FSM of the TX. Aside from the level triggered issue I committed during the first designs the rest was simple:
 ``` verilog
 `timescale 1ns / 1ps
 
